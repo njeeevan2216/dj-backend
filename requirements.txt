@@ -1,0 +1,14 @@
+langchain-core
+langchain-community
+langchain-google-genai
+langchain-neo4j
+langgraph
+neo4j
+google-genai
+sentence-transformers
+spacy
+scikit-learn
+pydantic
+typing-extensions
+flask
+gunicorn
