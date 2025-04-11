@@ -1359,6 +1359,21 @@ elif not rag_graph:
     logging.error("FATAL: RAG graph not compiled. Cannot proceed.")
 else:
     main_pipeline = build_main_pipeline()
+    
+@app.route('/status')
+def components_status():
+    """
+    API endpoint to check the status of all components.
+    Returns a JSON object indicating the status of each component.
+    """
+    status = {
+        "LLM": "Initialized" if llm else "Not Initialized",
+        "RAG_Neo4j_Graph": "Connected" if rag_neo4j_graph else "Not Connected",
+        "KG_Neo4j_Graph": "Connected" if kg_neo4j_graph else "Not Connected",
+        "RAG_Graph": "Compiled" if rag_graph else "Not Compiled",
+        "Main_Pipeline": "Initialized" if 'main_pipeline' in globals() else "Not Initialized"
+    }
+    return jsonify(status), 200
 
 # Define the API route
 @app.route('/api/query', methods=['POST'])
