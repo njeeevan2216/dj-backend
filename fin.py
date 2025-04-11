@@ -55,6 +55,7 @@ except Exception as e:
 # Other necessary imports
 from sentence_transformers import SentenceTransformer
 import spacy
+spacy.cli.download("en_core_web_sm")
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # LangGraph imports
